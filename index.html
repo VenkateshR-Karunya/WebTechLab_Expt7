@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Green Thumb Journal</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  body { margin: 0; font-family: Georgia, serif; background: #f1f8e9; text-align: center; }
+  #hero { padding: 50px 20px 20px; }
+  #hero h1 { color: #1b5e20; font-size: 40px; margin: 10px; }
+  #hero p { color: #558b2f; font-size: 18px; }
+  #cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 20px; }
+  .card { background: white; width: 220px; padding: 20px; border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.15); text-decoration: none; color: #33691e; display: none; }
+  .card:hover { background: #dcedc8; }
+  .card .icon { font-size: 50px; }
+</style>
+<script>
+$(document).ready(function () {
+  // fade the cards in one after another
+  $('.card').each(function (i) {
+    $(this).delay(i * 300).fadeIn(600);
+  });
+});
+</script>
+</head>
+<body>
+  <div class="navbar">
+    <span class="brand">🌿 The Green Thumb Journal</span>
+    <a href="index.html" class="active">Home</a>
+    <a href="q1_budget_calculator.html">Budget Calculator</a>
+    <a href="q2_plant_shop.html">Plant Shop</a>
+    <a href="q3_garden_truck_workshop.html">Truck Workshop</a>
+  </div>
+
+  <div id="hero">
+    <h1>Welcome to The Green Thumb Journal</h1>
+    <p>Tips, tools and tiny experiments for happy gardens.</p>
+  </div>
+
+  <div id="cards">
+    <a class="card" href="q1_budget_calculator.html">
+      <div class="icon">💰</div>
+      <h3>Budget Calculator</h3>
+      <p>Split your garden money across seeds, tools, soil and savings.</p>
+    </a>
+    <a class="card" href="q2_plant_shop.html">
+      <div class="icon">🌻</div>
+      <h3>Plant Shop</h3>
+      <p>Order plants and see your total bill.</p>
+    </a>
+    <a class="card" href="q3_garden_truck_workshop.html">
+      <div class="icon">🚚</div>
+      <h3>Truck Workshop</h3>
+      <p>Customise the colour, glass and tyres of the garden truck.</p>
+    </a>
+  </div>
+</body>
+</html>

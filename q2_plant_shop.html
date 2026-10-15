@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Shop - The Green Thumb Journal</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; background: #f9fbe7; }
+  h1 { background: #2e7d32; color: white; text-align: center; margin: 0; padding: 12px; font-size: 20px; }
+  #items { display: flex; justify-content: space-around; text-align: center; padding: 15px; }
+  .icon { font-size: 60px; }
+  #order { width: 450px; margin: auto; }
+  h2 { text-align: center; color: #2e7d32; }
+  label { color: #33691e; font-weight: bold; font-size: 13px; }
+  input { width: 100%; padding: 6px; margin: 4px 0 10px; box-sizing: border-box; }
+  #place { display: block; margin: auto; background: #2e7d32; color: white; border: none; padding: 8px 60px; cursor: pointer; }
+  #bill { text-align: center; color: #2e7d32; border-top: 2px solid #2e7d32; margin-top: 20px; }
+  #total { background: #43a047; color: white; padding: 5px 40px; font-size: 18px; }
+  #price { color: #c62828; font-weight: bold; font-size: 18px; margin-left: 10px; }
+</style>
+<script>
+$(document).ready(function () {
+  $('#place').click(function () {
+    let rose      = parseInt($('#q1').val()) || 0;
+    let tulip     = parseInt($('#q2').val()) || 0;
+    let sunflower = parseInt($('#q3').val()) || 0;
+    let lavender  = parseInt($('#q4').val()) || 0;
+
+    let total = rose * 300 + tulip * 200 + sunflower * 250 + lavender * 350;
+    $('#price').text('Rs.' + total);
+  });
+});
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <span class="brand">🌿 The Green Thumb Journal</span>
+    <a href="index.html">Home</a>
+    <a href="q1_budget_calculator.html">Budget Calculator</a>
+    <a href="q2_plant_shop.html" class="active">Plant Shop</a>
+    <a href="q3_garden_truck_workshop.html">Truck Workshop</a>
+  </div>
+  <h1>THE GREEN THUMB JOURNAL - PLANT SHOP</h1>
+
+  <div id="items">
+    <div><div class="icon">🌹</div>Rose Plant - Rs. 300</div>
+    <div><div class="icon">🌷</div>Tulip Plant - Rs. 200</div>
+    <div><div class="icon">🌻</div>Sunflower - Rs. 250</div>
+    <div><div class="icon">🪻</div>Lavender - Rs. 350</div>
+  </div>
+
+  <div id="order">
+    <h2>Order Plants</h2>
+    <label>Rose Plant (Quantity)</label>
+    <input type="number" id="q1" min="0" value="0">
+    <label>Tulip Plant (Quantity)</label>
+    <input type="number" id="q2" min="0" value="0">
+    <label>Sunflower (Quantity)</label>
+    <input type="number" id="q3" min="0" value="0">
+    <label>Lavender (Quantity)</label>
+    <input type="number" id="q4" min="0" value="0">
+    <button id="place">Place Order</button>
+
+    <div id="bill">
+      <h3>Purchase Order Bill!!</h3>
+      <span id="total">Total Price</span><span id="price">Rs.0</span>
+    </div>
+  </div>
+</body>
+</html>

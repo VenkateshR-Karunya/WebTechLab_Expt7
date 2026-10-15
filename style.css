@@ -1,0 +1,23 @@
+/* Shared top navigation bar for The Green Thumb Journal */
+.navbar {
+  background: #1b5e20;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  font-family: Georgia, serif;
+}
+.navbar .brand {
+  color: #c5e1a5;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: auto;
+  padding: 14px 0;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 16px 18px;
+}
+.navbar a:hover { background: #2e7d32; }
+.navbar a.active { background: #388e3c; }

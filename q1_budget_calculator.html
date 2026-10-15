@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Budget Calculator - The Green Thumb Journal</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+  body { font-family: Georgia, serif; background: #f1f8e9; text-align: center; margin: 0; }
+  h1 { background: #1b5e20; color: white; margin: 0; padding: 15px; }
+  h3 { color: #2e7d32; }
+  input { width: 70px; padding: 5px; }
+  #amount { width: 120px; }
+  button { background: #2e7d32; color: white; border: none; padding: 10px 25px; font-size: 16px; cursor: pointer; margin: 20px; }
+  button:hover { background: #1b5e20; }
+  #results { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+  .box { color: white; width: 130px; padding: 15px 5px; border-radius: 6px; }
+  #seeds { background: #388e3c; }
+  #tools { background: #6d4c41; }
+  #soil { background: #8d6e63; }
+  #saving { background: #f9a825; }
+</style>
+<script>
+$(document).ready(function () {
+  $('#evaluate').click(function () {
+    let amount = parseFloat($('#amount').val());
+    let seeds  = parseFloat($('#p1').val());
+    let tools  = parseFloat($('#p2').val());
+    let soil   = parseFloat($('#p3').val());
+    let saving = parseFloat($('#p4').val());
+
+    if (isNaN(amount) || isNaN(seeds) || isNaN(tools) || isNaN(soil) || isNaN(saving)) {
+      alert('Please fill in the amount and all four percentages.');
+      return;
+    }
+
+    // The amount can only be divided if the percentages add up to 100
+    if (seeds + tools + soil + saving !== 100) {
+      alert('The percentages must add up to 100%. Please check your values.');
+      return;
+    }
+
+    $('#seeds').html('Seeds &amp; Plants<br>Rs.' + (amount * seeds / 100));
+    $('#tools').html('Garden Tools<br>Rs.' + (amount * tools / 100));
+    $('#soil').html('Soil &amp; Compost<br>Rs.' + (amount * soil / 100));
+    $('#saving').html('Saving<br>Rs.' + (amount * saving / 100));
+  });
+});
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <span class="brand">🌿 The Green Thumb Journal</span>
+    <a href="index.html">Home</a>
+    <a href="q1_budget_calculator.html" class="active">Budget Calculator</a>
+    <a href="q2_plant_shop.html">Plant Shop</a>
+    <a href="q3_garden_truck_workshop.html">Truck Workshop</a>
+  </div>
+  <h1>The Green Thumb Journal - Garden Budget Calculator</h1>
+
+  <h3>Enter the amount you want to manage</h3>
+  <input type="text" id="amount" placeholder="15000">
+
+  <h3>How would you like to divide your garden money?</h3>
+  Seeds &amp; Plants (%): <input type="text" id="p1" placeholder="50">
+  Garden Tools (%): <input type="text" id="p2" placeholder="20">
+  Soil &amp; Compost (%): <input type="text" id="p3" placeholder="20">
+  Saving (%): <input type="text" id="p4" placeholder="10">
+  <br>
+
+  <button id="evaluate">Evaluate My Money</button>
+
+  <div id="results">
+    <div class="box" id="seeds">Seeds &amp; Plants</div>
+    <div class="box" id="tools">Garden Tools</div>
+    <div class="box" id="soil">Soil &amp; Compost</div>
+    <div class="box" id="saving">Saving</div>
+  </div>
+</body>
+</html>
